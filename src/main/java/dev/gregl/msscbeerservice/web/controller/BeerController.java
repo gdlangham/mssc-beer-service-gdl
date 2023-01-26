@@ -24,11 +24,11 @@ public class BeerController {
     @Value("${app.v1.beer.base-url}")
     private String baseUrl;
 
-    private final BeerService beerService;
+//    private final BeerService beerService;
 
-    public BeerController(BeerService beerService) {
-        this.beerService = beerService;
-    }
+//    public BeerController(BeerService beerService) {
+//        this.beerService = beerService;
+//    }
 
     @GetMapping({"/{beerId}"})
     public ResponseEntity<BeerDto> getBeerById(@PathVariable("beerId") UUID beerId){
