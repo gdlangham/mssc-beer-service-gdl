@@ -2,11 +2,14 @@ package dev.gregl.msscbeerservice.web.controller;
 
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import dev.gregl.msscbeerservice.web.model.BeerDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,7 +40,7 @@ public class BeerController {
     }
 
     @PostMapping
-    public ResponseEntity<BeerDto> saveNewBeer(@RequestBody BeerDto beerDto) {
+    public ResponseEntity<BeerDto> saveNewBeer(@Validated @RequestBody BeerDto beerDto) {
 //        BeerDto bt = beerService.saveNewBeer(beerDto);
         HttpHeaders headers = new HttpHeaders();
         //TODO add base url
@@ -46,7 +49,7 @@ public class BeerController {
     }
 
     @PutMapping("/{beerId}")
-    public ResponseEntity<BeerDto> updateBeerById(@PathVariable("beerId") UUID beerId, @RequestBody BeerDto beerDto) {
+    public ResponseEntity<BeerDto> updateBeerById(@PathVariable("beerId") UUID beerId, @Validated @RequestBody BeerDto beerDto) {
 //        beerService.updateBeer(beerId, beerDto);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
