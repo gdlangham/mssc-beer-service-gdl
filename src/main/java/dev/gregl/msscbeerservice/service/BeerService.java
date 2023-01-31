@@ -5,7 +5,9 @@ import java.util.UUID;
 import dev.gregl.msscbeerservice.domain.Beer;
 import dev.gregl.msscbeerservice.web.controller.BeerNotFoundException;
 import dev.gregl.msscbeerservice.web.model.BeerDto;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface BeerService {
     BeerDto getById(UUID beerId) throws BeerNotFoundException;
 
